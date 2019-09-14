@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mb-2">
+        <div class="row border">
+            <div class="col-4">
+                <h5>Empresas</h5>
+            </div>
+            <div class="col">
+                <a href="{% url 'empresa_create' %}" class="btn btn-outline-success">Nova Pergunta</a>
+            </div>
+        </div>
+    </div>
+<div class="container border">
+    <div class="table-responsive-sm">
+    <table class="table table-sm table-striped table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th >Empresa</th>
+          <th class="text-center text-info">Detalhe</th>
+          <th class="text-center text-warning">Atualiza</th>
+          <th class="text-center text-danger">Apaga</th>
+        </tr>
+      </thead>
+      <tbody>
+    {% for empresa in object_list %}
+        <tr>
+            <td>{{ empresa.nome }}</td>
+            <td class="text-center"><a href="{% url 'empresa_detail' question.id %}"><i class="fas fa-eye text-info" ></i></a></td>
+            <td class="text-center"><a href="{% url 'empresa_update' question.id %}"><i class="fas fa-edit text-warning"></i></a></td>
+            <td class="text-center"><a href="{% url 'empresa_delete' question.id %}"><i class="fas fa-trash-alt text-danger"></i></a></td>
+        </tr>
+    {% empty %}
+        <li>Nenhuma empresa ainda.</li>
+    {% endfor %}
+      </tbody>
+    </table>
+</div>
+    </div>
+{% endblock %}

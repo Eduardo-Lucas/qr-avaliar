@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% bootstrap_alert "Something went wrong" alert_type='error' %}
+
+{% block title %}Criar Conta{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h4 class="text-center">Criar Conta</h4>
+  <div class="row mb-3 justify-content-center">
+    <div class="border col-sm-4 bg-primary">
+      <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-success btn-block mb-3 " >Criar Conta</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

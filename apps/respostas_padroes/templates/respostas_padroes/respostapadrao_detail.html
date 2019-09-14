@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h5>Detalhe da Resposta Padrão</h5>
+    <p><button class="btn btn-outline-primary">{{ object.texto }}</button></p>
+
+    <a href="{% url 'resposta_padrao_list' %}">Voltar</a>
+{% endblock %}

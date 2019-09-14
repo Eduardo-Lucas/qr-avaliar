@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <h5>Detalhe da Pergunta</h5>
+        </div>
+        <div class="col">
+            <a href="{% url 'pergunta_list' %}"
+               class="btn btn-sm btn-outline-primary">
+                <i class="fas fa-arrow-alt-circle-left"></i>
+                Voltar
+            </a>
+        </div>
+    </div>
+</div>
+    <p>{{ object.texto_da_pergunta }}</p>
+    <p>{{ object.data_de_criacao|date:"d/m/Y H:i"}}</p>
+
+    <h5>Opções da Pergunta</h5>
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group btn-group-sm mr-2" role="group" aria-label="First group">
+            {% for p in object.opcao_set.all %}
+                <button type="button" class="btn btn-primary mr-1">{{ p.opcao }}</button>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}

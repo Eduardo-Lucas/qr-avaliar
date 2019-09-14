@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{# Load the tag library #}
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% bootstrap_alert "Something went wrong" alert_type='error' %}
+
+{% block content %}
+
+<div class="container mb-3">
+    <h4 class="text-center">Entrar</h4>
+    <div class="row mb-3 justify-content-center">
+        <div class="border col-sm-4 bg-primary">
+            <form method="post">
+              {% csrf_token %}
+              {% bootstrap_form form %}
+              <button type="submit" class="btn btn-success btn-block mb-3">Entrar</button>
+            </form>
+            <a href="{% url 'perfil_create' %}" class="mb-3 btn btn-primary btn-block">Você não tem uma conta? Cadastrar agora</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
