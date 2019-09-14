@@ -8,7 +8,7 @@ from apps.perguntas.models import Pergunta
 def create_opcao(request, pergunta_id):
     pergunta = Pergunta.objects.get(id=pergunta_id)
     OpcaoFormset = inlineformset_factory(Pergunta, Opcao, fields=('opcao', 'tipo'),
-                                         can_delete=True, extra=1)
+                                         can_delete=True, extra=5)
 
     if request.method == 'POST':
         formset = OpcaoFormset(request.POST, instance=pergunta)
