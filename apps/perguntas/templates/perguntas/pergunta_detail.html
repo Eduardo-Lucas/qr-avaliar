@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<div class="container border">
     <div class="row">
         <div class="col-3">
             <h5>Detalhe da Pergunta</h5>
@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container border">
     <h5>{{ object.texto_da_pergunta }}</h5>
     <p>{{ object.data_de_criacao|date:"d/m/Y H:i"}}</p>
 
