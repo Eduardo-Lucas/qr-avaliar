@@ -12,7 +12,7 @@ class RespostaPadraoListView(ListView):
 
 def manage_resposta_padrao(request):
     RespostaPadraoFormSet = modelformset_factory(RespostaPadrao, fields=('texto',),
-                                                 can_delete=False, extra=1,)
+                                                 can_delete=False, extra=5,)
     if request.method == 'POST':
         formset = RespostaPadraoFormSet(request.POST, )
         if formset.is_valid():
