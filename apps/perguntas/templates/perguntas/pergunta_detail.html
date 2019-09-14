@@ -15,7 +15,9 @@
         </div>
     </div>
 </div>
-    <p>{{ object.texto_da_pergunta }}</p>
+
+<div class="container">
+    <h5>{{ object.texto_da_pergunta }}</h5>
     <p>{{ object.data_de_criacao|date:"d/m/Y H:i"}}</p>
 
     <h5>Opções da Pergunta</h5>
@@ -26,6 +28,6 @@
             {% endfor %}
         </div>
     </div>
-
+</div>
 
 {% endblock %}
