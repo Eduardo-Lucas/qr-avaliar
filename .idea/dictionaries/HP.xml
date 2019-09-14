@@ -1,10 +1,16 @@
 <component name="ProjectDictionaryState">
   <dictionary name="HP">
     <words>
+      <w>ainda</w>
+      <w>apaga</w>
       <w>apagada</w>
+      <w>atualiza</w>
       <w>criacao</w>
       <w>departamentos</w>
+      <w>detalhe</w>
       <w>endfor</w>
+      <w>evento</w>
+      <w>eventos</w>
       <w>existem</w>
       <w>funcionarios</w>
       <w>gravar</w>
@@ -15,6 +21,7 @@
       <w>perguntas</w>
       <w>resposta</w>
       <w>respostas</w>
+      <w>término</w>
       <w>whitenoise</w>
     </words>
   </dictionary>
