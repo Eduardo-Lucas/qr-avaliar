@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
+
 {% load bootstrap4 %}
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
+
+{% block extrahead %}
+    {{ EventoForm.media }}
+{% endblock %}
 
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
@@ -22,13 +27,64 @@
         </div>
     </div>
 </div>
-    <form method="post"> {% csrf_token %}
-        {% bootstrap_form form %}
-        {% buttons %}
-            <button type="submit" class="btn btn-outline-success btn-block">
-                Gravar
-            </button>
-        {% endbuttons %}
-    </form>
+<div class="container">
+
+        <form method="post"> {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    {% bootstrap_field form.nome %}
+                </div>
+                <div class="col">
+                    {% bootstrap_field form.publico_privado %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% bootstrap_field form.data_inicio %}
+                </div>
+                <div class="col">
+                    {% bootstrap_field form.data_termino %}
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% bootstrap_field form.local %}
+                </div>
+                <div class="col">
+                    {% bootstrap_field form.endereco %}
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                        {% bootstrap_field form.numero %}
+                </div>
+                <div class="col">
+                    {% bootstrap_field form.bairro %}
+                </div>
+                <div class="col">
+                    {% bootstrap_field form.cidade %}
+                </div>
+                <div class="col">
+                        {% bootstrap_field form.uf %}
+                </div>
+                <div class="col">
+                        {% bootstrap_field form.absorver_taxa_servico %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% bootstrap_field form.descricao %}
+                </div>
+            </div>
+            {% buttons %}
+                <button type="submit" class="btn btn-outline-success btn-block">
+                    Gravar
+                </button>
+            {% endbuttons %}
+        </form>
+
+</div>
 
 {% endblock %}

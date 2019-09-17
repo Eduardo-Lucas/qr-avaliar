@@ -9,3 +9,11 @@ class HomeView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['usuario'] = self.request.user
         return context
+
+
+class ComoFuncionaView(TemplateView):
+    template_name = "core/como_funciona.html"
+
+
+class PlanosView(TemplateView):
+    template_name = "core/planos.html"

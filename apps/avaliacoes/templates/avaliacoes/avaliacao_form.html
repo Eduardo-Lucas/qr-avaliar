@@ -14,7 +14,7 @@
                 <h4 class="text-center">Avaliação</h4>
             </div>
             <div class="col">
-                <a href="#"
+                <a href="{% url 'evento_list' %}"
                    class="btn btn-outline-primary btn-sm">
                     <i class="fas fa-arrow-alt-circle-left"></i>
                     Voltar</a>
@@ -25,7 +25,7 @@
 
     <div class="container d-flex justify-content-center">
             <form method="POST" > {% csrf_token %}
-                <strong>{{ evento.nome }}</strong>
+                <h5 class="text-info"><strong>Evento: {{ evento.nome }}</strong></h5>
                 <div class="col border">
                 {% bootstrap_formset formset %}
                 </div>

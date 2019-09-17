@@ -5,6 +5,10 @@
       <w>apaga</w>
       <w>apagada</w>
       <w>atualiza</w>
+      <w>avaliacao</w>
+      <w>avaliacoes</w>
+      <w>avaliação</w>
+      <w>avaliações</w>
       <w>criacao</w>
       <w>departamentos</w>
       <w>detalhe</w>
@@ -12,6 +16,7 @@
       <w>evento</w>
       <w>eventos</w>
       <w>existem</w>
+      <w>funciona</w>
       <w>funcionarios</w>
       <w>gravar</w>
       <w>opcao</w>
@@ -19,9 +24,11 @@
       <w>opção</w>
       <w>pergunta</w>
       <w>perguntas</w>
+      <w>planos</w>
       <w>resposta</w>
       <w>respostas</w>
       <w>término</w>
+      <w>votos</w>
       <w>whitenoise</w>
     </words>
   </dictionary>

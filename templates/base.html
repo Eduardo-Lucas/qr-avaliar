@@ -29,6 +29,18 @@
                       <a class="nav-link" href="{% url 'home' %}">Início <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
+                      <a class="nav-link" href="{% url 'evento_list' %}">Eventos</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'pergunta_list' %}">Perguntas</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Avaliações</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Planos</a>
+                  </li>
+                  <li class="nav-item">
                       <a class="nav-link" href="{% url 'resposta_padrao_list' %}">Respostas Padrões</a>
                   </li>
                   {% if user.is_authenticated %}
@@ -47,7 +59,7 @@
                               {% endif %}
 
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Meus Eventos</a>
+                              <a class="dropdown-item" href="#">Minhas Avaliações</a>
                           </div>
                       </li>
                       <li class="nav-item">
@@ -69,12 +81,11 @@
 
       </div>
 
-
-    <div class="container">
-        {% include 'messages.html' %}
-        {% block content %}
-        {% endblock %}
-    </div>
+        <div class="container">
+            {% include 'messages.html' %}
+            {% block content %}
+            {% endblock %}
+        </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

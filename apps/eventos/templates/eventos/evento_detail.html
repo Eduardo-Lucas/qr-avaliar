@@ -1,7 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h5>Detalhe do Evento</h5>
-    <p>{{ object.nome }}</p>
-    <a href="{% url 'evento_list' %}">Voltar</a>
+<div class="container border">
+    <div class="row ">
+        <div class="col-3">
+        <h5>Detalhe do Evento</h5>
+        </div>
+        <div class="col">
+            <a href="{% url 'evento_list' %}"
+            class="btn btn-sm btn-outline-primary">
+                <i class="fas fa-arrow-alt-circle-left"></i>
+                Voltar</a>
+        </div>
+    </div>
+</div>
+
+<div class="container border">
+    <h6 class="text-info">{{ object.nome }}</h6>
+    <ul>
+        {% for avaliacao in object.avaliacao_set.all %}
+            <li>{{avaliacao.pergunta}}</li>
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group btn-group-sm mr-2" role="group" aria-label="First group">
+                        {% for opcao in avaliacao.pergunta.opcao_set.all %}
+                            <button type="button" class="btn btn-primary mr-1">{{opcao.opcao}}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

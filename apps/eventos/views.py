@@ -1,6 +1,8 @@
+from bootstrap_datepicker_plus import DateTimePickerInput
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse, reverse_lazy
+from django.views import generic
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
 from apps.eventos.models import Evento
@@ -10,17 +12,22 @@ class EventoListView(ListView):
     model = Evento
 
 
-class EventoCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+class EventoCreateView(generic.edit.CreateView):
     model = Evento
-    fields = ['nome', 'data_inicio', 'data_termino', 'descricao', 'publico_privado',
-              'local', 'cep', 'endereco', 'numero', 'bairro', 'cidade', 'uf', 'absorver_taxa_servico']
+    fields = ['nome', 'data_inicio', 'data_termino', 'descricao', 'publico_privado', 'local', 'cep', 'endereco',
+              'numero', 'bairro', 'cidade', 'uf', 'absorver_taxa_servico']
     success_message = 'O Evento %(nome)s foi criada com sucesso!'
-    
-    # def form_valid(self, form):
-    #     obj = form.save()
-    #     funcionario = self.request.user.funcionario
-    #     funcionario.evento = obj
-    #     funcionario.save()
+
+    def get_form(self):
+        form = super().get_form()
+        print('ESSE É O FORM==> '+ str(form))
+        form.fields['data_inicio'].widget = DateTimePickerInput(options={
+                                                           'format': '%d/%m/%Y %H:%M',
+                                                           'showClose': True,
+                                                           'showClear': True,
+                                                           'showTodayButton': True,
+                                                       })
+        return form
 
 
 class EventoDetailView(LoginRequiredMixin, DetailView):
