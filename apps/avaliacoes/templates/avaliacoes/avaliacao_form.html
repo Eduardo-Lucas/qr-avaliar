@@ -27,7 +27,7 @@
             <form method="POST" > {% csrf_token %}
                 <h5 class="text-info"><strong>Evento: {{ evento.nome }}</strong></h5>
                 <div class="col border">
-                {% bootstrap_formset formset %}
+                {% bootstrap_formset formset layout='horizontal'  %}
                 </div>
                 {% buttons %}
                     <button type="submit"

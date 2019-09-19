@@ -20,7 +20,6 @@ class EventoCreateView(generic.edit.CreateView):
 
     def get_form(self):
         form = super().get_form()
-        print('ESSE É O FORM==> '+ str(form))
         form.fields['data_inicio'].widget = DateTimePickerInput(options={
                                                            'format': '%d/%m/%Y %H:%M',
                                                            'showClose': True,

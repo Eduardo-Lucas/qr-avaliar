@@ -17,9 +17,10 @@
 
 <div class="container border">
     <h6 class="text-info">{{ object.nome }}</h6>
-    <ul>
+    <ul >
         {% for avaliacao in object.avaliacao_set.all %}
-            <li>{{avaliacao.pergunta}}</li>
+            <li>{{avaliacao.ordem}}. {{avaliacao.pergunta}}</li>
+            {% if avaliacao.tipo == 'Botão' %}
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group btn-group-sm mr-2" role="group" aria-label="First group">
                         {% for opcao in avaliacao.pergunta.opcao_set.all %}
@@ -27,6 +28,9 @@
                         {% endfor %}
                     </div>
                 </div>
+            {% else %}
+                <input type="text" class="form-control" id="sugestao" placeholder="Escreva uma sugestão">
+            {% endif %}
         {% endfor %}
     </ul>
 </div>

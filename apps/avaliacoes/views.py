@@ -7,7 +7,7 @@ from apps.eventos.models import Evento
 
 def create_avaliacao(request, evento_id):
     evento = Evento.objects.get(id=evento_id)
-    AvaliacaoFormset = inlineformset_factory(Evento, Avaliacao, fields=('pergunta',),
+    AvaliacaoFormset = inlineformset_factory(Evento, Avaliacao, fields=('pergunta', 'tipo', 'ordem'),
                                              can_delete=True, extra=3)
     
     if request.method == 'POST':
