@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container border">
     <div class="row ">
-        <div class="col-3">
+        <div class="col-5">
         <h5>Detalhe do Evento</h5>
         </div>
         <div class="col">
@@ -15,7 +15,7 @@
     </div>
 </div>
 
-<div class="container border">
+<div class="container">
     <h6 class="text-info">{{ object.nome }}</h6>
     <ul >
         {% for avaliacao in object.avaliacao_set.all %}
@@ -29,7 +29,13 @@
                     </div>
                 </div>
             {% else %}
-                <input type="text" class="form-control" id="sugestao" placeholder="Escreva uma sugestão">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" id="sugestao" placeholder="Escreva uma sugestão">
+                        </div>
+                    </div>
+                </div>
             {% endif %}
         {% endfor %}
     </ul>
