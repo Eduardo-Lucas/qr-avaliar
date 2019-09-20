@@ -15,9 +15,14 @@
 {% block content %}
 
 <div class="container">
-  <h4 class="text-center">Criar Conta</h4>
+  <h4 class="text-center">Criar uma Conta GRÁTIS!</h4>
+  <h5 class="text-center">Já possui conta?
+    <a href="{% url 'login' %}">Fazer login
+      <i class="fas fa-angle-double-right"></i>
+    </a> </h5>
+
   <div class="row mb-3 justify-content-center">
-    <div class="border col-sm-4 bg-dark">
+    <div class="border col-sm-4">
       <form method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
