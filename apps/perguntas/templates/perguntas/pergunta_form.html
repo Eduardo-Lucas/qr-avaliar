@@ -8,14 +8,35 @@
 {% bootstrap_messages %}
 
 {% block content %}
-    <h1>Pergunta</h1>
-    <form method="post"> {% csrf_token %}
-        {% bootstrap_form form %}
-        {% buttons %}
-            <button type="submit" class="btn btn-outline-success btn-block">
-                Gravar
-            </button>
-        {% endbuttons %}
-    </form>
+    <div class="container">
+    <div class="row">
+        <div class="col">
+            <h5>Pergunta</h5>
+        </div>
+        <div class="col">
+            <a href="{% url 'pergunta_list' %}"
+                class="btn btn-sm btn-outline-primary">
+                <i class="fas fa-arrow-alt-circle-left"></i>
+                Voltar
+            </a>
+        </div>
+    </div>
+</div>
+
+
+    <div class="container ">
+            <form method="POST" > {% csrf_token %}
+                <div class="col border">
+                {% bootstrap_formset formset  %}
+                </div>
+                {% buttons %}
+                    <button type="submit"
+                            class="btn btn-outline-success btn-block">
+                        <i class="fas fa-save"></i>
+                        Gravar
+                    </button>
+                {% endbuttons %}
+            </form>
+    </div>
 
 {% endblock %}
