@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Django Polls</title>
+    <title>QR Avaliar</title>
   </head>
   <body>
 
@@ -55,6 +55,7 @@
                               {% if usuario.funcionario.empresa %}
                                 <a class="dropdown-item" href="{% url 'empresa_update' usuario.funcionario.empresa_id %}">Atualizar Empresa</a>
                                 <a class="dropdown-item" href="{% url 'funcionario_list' %}">Cadastra Funcionário</a>
+                                <a class="dropdown-item" href="{% url 'departamento_list' %}">Departamentos</a>
                               {% else %}
                                 <a class="dropdown-item" href="{% url 'empresa_create' %}">Criar Empresa</a>
                               {% endif %}

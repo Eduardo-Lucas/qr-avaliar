@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        <h1>Tem certeza que quer apagar o registro de "{{ object }}"?</h1>
+        <input class="btn btn-outline-danger" type="submit" value="Confirma">
+        <a href="{% url 'departamento_list' %}" class="btn btn-primary">Voltar</a>
+    </form>
+{% endblock %}
