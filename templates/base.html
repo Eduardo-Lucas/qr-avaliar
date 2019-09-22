@@ -51,13 +51,16 @@
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+
+
+                              {% if usuario.funcionario.empresa %}
+
                                 {% if perfil %}
                                     <a class="dropdown-item" href="{% url 'perfil_update' perfil.pk %}">Atualiza Perfil</a>
                                 {% else %}
                                     <a class="dropdown-item" href="{% url 'perfil_create' %}">Cria Perfil</a>
                                 {% endif %}
 
-                              {% if usuario.funcionario.empresa %}
                                 <a class="dropdown-item" href="{% url 'empresa_update' usuario.funcionario.empresa_id %}">Atualizar Empresa</a>
                                 <a class="dropdown-item" href="{% url 'funcionario_list' %}">Cadastra Funcionário</a>
                                 <a class="dropdown-item" href="{% url 'departamento_list' %}">Departamentos</a>
