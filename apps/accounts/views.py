@@ -29,6 +29,11 @@ class PerfilUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'accounts/perfil_form.html'
     success_message = 'O Perfil %(nome)s foi alterado com sucesso.'
     success_url = reverse_lazy('home')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['perfil'] = Perfil.objects.get(user_id=self.request.user.id)
+        return context
 
     
 class PerfilDetailView(LoginRequiredMixin, SuccessMessageMixin, DetailView):
