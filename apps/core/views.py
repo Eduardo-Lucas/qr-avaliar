@@ -10,6 +10,8 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['usuario'] = self.request.user
+        if self.request.user:
+            context['perfil'] = Perfil.objects.get(user_id=self.request.user.id)
         return context
 
 
