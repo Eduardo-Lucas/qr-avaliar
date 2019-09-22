@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.core.validators import EmailValidator
 from django.db import models
+from django.urls import reverse
 
 
 class Perfil(models.Model):
@@ -11,6 +12,9 @@ class Perfil(models.Model):
     
     def __str__(self):
         return self.nome
+    
+    def get_absolute_url(self):
+        return reverse("perfil_detail", kwargs={"pk": self.pk})
     
     class Meta:
         ordering = ['nome']

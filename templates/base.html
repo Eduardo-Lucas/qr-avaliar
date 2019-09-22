@@ -50,7 +50,12 @@
                               {{user.username}}
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="#">Meu Perfil</a>
+
+                                {% if perfil_id %}
+                                    <a class="dropdown-item" href="{% url 'perfil_update' perfil_id %}">Atualiza Perfil</a>
+                                {% else %}
+                                    <a class="dropdown-item" href="{% url 'perfil_create' %}">Cria Perfil</a>
+                                {% endif %}
 
                               {% if usuario.funcionario.empresa %}
                                 <a class="dropdown-item" href="{% url 'empresa_update' usuario.funcionario.empresa_id %}">Atualizar Empresa</a>
