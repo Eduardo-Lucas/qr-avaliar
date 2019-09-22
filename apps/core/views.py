@@ -8,7 +8,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['usuario'] = self.request.user
-        context['user_id'] = self.request.user.id
+        context['perfil_pk'] = self.request.user.perfil.pk
         print(context)
         return context
 

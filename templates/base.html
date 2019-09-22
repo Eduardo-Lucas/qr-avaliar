@@ -51,8 +51,8 @@
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                {% if user_id %}
-                                    <a class="dropdown-item" href="{% url 'perfil_update' user_id %}">Atualiza Perfil</a>
+                                {% if perfil_pk %}
+                                    <a class="dropdown-item" href="{% url 'perfil_update' perfil_pk %}">Atualiza Perfil</a>
                                 {% else %}
                                     <a class="dropdown-item" href="{% url 'perfil_create' %}">Cria Perfil</a>
                                 {% endif %}
