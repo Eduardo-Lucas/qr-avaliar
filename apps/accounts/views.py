@@ -12,7 +12,7 @@ from apps.accounts.models import Perfil
 class SignUp(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
-    template_name = 'signup.html'
+    template_name = 'accounts/signup.html'
 
 
 class PerfilCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
