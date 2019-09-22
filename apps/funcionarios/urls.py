@@ -1,12 +1,14 @@
 from django.urls import path
-
-from apps.funcionarios.views import *
+from apps.funcionarios.views import (
+    FuncionarioList,
+    FuncionarioEdit,
+    FuncionarioDelete,
+    FuncionarioCreate)
 
 urlpatterns = [
-    # path('list', EmpresaListView.as_view(), name='empresa_list'),
-    # path('create', EmpresaCreateView.as_view(), name='empresa_create'),
-    # path('detail/<int:pk>', EmpresaDetailView.as_view(), name='empresa_detail'),
-    # path('update/<int:pk>', EmpresaUpdateView.as_view(), name='empresa_update'),
-    # path('delete/<int:pk>', EmpresaDeleteView.as_view(), name='empresa_delete'),
+    path('list', FuncionarioList.as_view(), name='funcionario_list'),
+    path('create', FuncionarioCreate.as_view(), name='funcionario_create'),
+    path('edit/<int:pk>', FuncionarioEdit.as_view(), name='funcionario_edit'),
+    path('delete/<int:pk>', FuncionarioDelete.as_view(), name='funcionario_delete'),
 
 ]

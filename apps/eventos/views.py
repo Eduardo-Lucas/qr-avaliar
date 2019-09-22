@@ -16,8 +16,14 @@ class EventoCreateView(generic.edit.CreateView):
     model = Evento
     fields = ['nome', 'data_inicio', 'data_termino', 'descricao', 'publico_privado', 'local', 'cep', 'endereco',
               'numero', 'bairro', 'cidade', 'uf', 'absorver_taxa_servico']
-    success_message = 'O Evento %(nome)s foi criada com sucesso!'
+    success_message = 'O Evento %(nome)s foi criado com sucesso!'
 
+    def form_valid(self, form):
+        evento = form.save(commit=False)
+        evento.empresa = self.request.user.funcionario.empresa
+        evento.save()
+        return super(EventoCreateView, self).form_valid(form)
+        
     def get_form(self):
         form = super().get_form()
         form.fields['data_inicio'].widget = DateTimePickerInput(options={

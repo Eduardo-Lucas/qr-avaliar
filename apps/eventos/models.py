@@ -11,7 +11,7 @@ TIPO_DE_EVENTO_CHOICES = (
 
 
 class Evento(models.Model):
-    empresa = models.ForeignKey(Empresa, default=1, on_delete=models.CASCADE)
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     nome = models.CharField(max_length=100, )
     data_inicio = models.DateTimeField(
         _("Data de Início"), auto_now=False, auto_now_add=False)

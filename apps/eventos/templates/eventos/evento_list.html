@@ -20,6 +20,7 @@
           <th >Início</th>
           <th >Término</th>
           <th >Local</th>
+          <th >Empresa</th>
           <th class="text-center text-info">Qtd</th>
           <th class="text-center text-info">Avaliação</th>
           <th class="text-center text-info">Detalhe</th>
@@ -34,6 +35,7 @@
             <td>{{ evento.data_inicio|date:"d/m/Y H:i" }}</td>
             <td>{{ evento.data_termino|date:"d/m/Y H:i" }}</td>
             <td>{{ evento.local }}</td>
+            <td>{{ evento.empresa }}</td>
             <td class="text-center">
                 <span class="badge badge-pill badge-warning">
                     {{ evento.avaliacao_set.count }} avaliaç{{evento.avaliacao_set.count|pluralize:"ão,ões"}}

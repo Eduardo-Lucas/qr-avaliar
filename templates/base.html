@@ -54,6 +54,7 @@
 
                               {% if usuario.funcionario.empresa %}
                                 <a class="dropdown-item" href="{% url 'empresa_update' usuario.funcionario.empresa_id %}">Atualizar Empresa</a>
+                                <a class="dropdown-item" href="{% url 'funcionario_list' %}">Cadastra Funcionário</a>
                               {% else %}
                                 <a class="dropdown-item" href="{% url 'empresa_create' %}">Criar Empresa</a>
                               {% endif %}
